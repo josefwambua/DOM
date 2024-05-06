@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing DOM</title>
+</head>
+<body>
+    <h1 id="head1"></h1>
+    <p id="html_dom"></p>
+    <p id="text">Lorem</p>
+    <h2 id="head2"></h2>
+    <!-- Random example of event .. click event -->
+    <button id="click">Change text</button>
+    <button  onclick="clickButton()">Cancel</button>
+</body>
+<script>
+// Is maybe a signal exposed by a browser to run a piece of js code
+// eg clicking a button - events- when a user interacts with a web page/ type in a form or click a button
+// common events in javascript 
+
+document.getElementById("head1").innerHTML = "Accessing Document Object Model";
+document.getElementById("html_dom").innerHTML = "Its simple to learn Dom";
+document.getElementById("head2").innerHTML = "Dom is superb"
+// logic of changing the text  in the button on click method
+
+const button = document.querySelector('#click');
+// define a fxn for changing the text
+//a function is a block of code used to perform a particalar task 
+function newText(event){
+    console.log(event);
+    const p = document.querySelector('#text');
+    p.innerText = "Learning DOM is simple and best by practicing and understanding it.";
+}
+
+button.addEventListener('click', newText);
+// keyboard & mouse events - triggered when u press on a keyboard/mouse
+document.addEventListener('keydown',(event)=>{
+    console.log("Key pressed");
+    console.log(event.key);
+}
+);
+//  key release
+document.addEventListener('keyup',(event)=>{
+    console.log("Key released");
+});
+// mouse clicked
+document.addEventListener('mousedown',(event)=>{
+    console.log("Mouse clicked");
+})
+document.addEventListener('mouseup',(event)=>{
+    console.log("Mouse released");
+
+})
+document.addEventListener('mouseout',(event)=>{
+    console.log("Mouse has  moved");
+    
+})
+// using onclick method on a button
+//function clickButton(){
+   // alert("Do you want to cancel");
+
+//}
+// linking a button to a  link
+function clickButton(){
+    window.location.replace("https://github.com/")
+}
+</script>
+</html>
